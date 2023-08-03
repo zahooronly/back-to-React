@@ -14,10 +14,16 @@ function App() {
     "Georgia",
   ];
   //   americanStates = [];
-
+  const onSelectHandler = (item: string) => {
+    console.log(item);
+  };
   return (
     <div>
-      <ListGroup americanStates={americanStates} heading="Cities" />
+      <ListGroup
+        americanStates={americanStates}
+        onSelectItem={onSelectHandler}
+        heading="Cities"
+      />
     </div>
   );
 }
