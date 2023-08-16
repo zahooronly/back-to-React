@@ -21,7 +21,7 @@ const ListGroup = ({ americanStates, heading, onSelectItem }: Props) => {
                 : "list-group-item"
             }
             key={state}
-            onClick={(event) => {
+            onClick={(eveeventnt) => {
               //   console.log(state, index);
               //   console.log(event);
               setSelectedItem(index);
