@@ -25,7 +25,9 @@ function App() {
         onSelectItem={onSelectHandler}
         heading="Cities"
       /> */}
-      <Alert />
+      <Alert>
+        <h1>Alert Component</h1>
+      </Alert>
     </div>
   );
 }
