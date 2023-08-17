@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Alert from "./components/Alert/Alert";
 import Button from "./components/Button/Button";
+import Like from "./components/Like/Like";
 // import ListGroup from "./components/ListGroup/ListGroup";
 
 function App() {
@@ -28,12 +29,13 @@ function App() {
         onSelectItem={onSelectHandler}
         heading="Cities"Alert
       /> */}
-      {visibility && (
+      {/* {visibility && (
         <Alert onClose={() => setVisibility(false)}>
           <h1>Alert Component</h1>
         </Alert>
-      )}
+      )} */}
       <Button clickFunc={() => setVisibility(true)}>Click here</Button>
+      <Like clickOnLike={() => console.log("Clicked")} />
     </div>
   );
 }
