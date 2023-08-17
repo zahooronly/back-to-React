@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import styled from "styled-components";
 interface Props {
   americanStates: string[];
   heading: String;
