@@ -29,11 +29,11 @@ function App() {
         onSelectItem={onSelectHandler}
         heading="Cities"Alert
       /> */}
-      {/* {visibility && (
+      {visibility && (
         <Alert onClose={() => setVisibility(false)}>
           <h1>Alert Component</h1>
         </Alert>
-      )} */}
+      )}
       <Button clickFunc={() => setVisibility(true)}>Click here</Button>
       <Like clickOnLike={() => console.log("Clicked")} />
     </div>
