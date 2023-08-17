@@ -1,11 +1,11 @@
 interface Props {
   children: string;
-  onClick: () => void;
+  clickFunc: () => void;
 }
 
-const Button = ({ children, onClick }: Props) => {
+const Button = ({ children, clickFunc }: Props) => {
   return (
-    <button className="btn btn-primary" onClick={onclick}>
+    <button className="btn btn-primary" onClick={clickFunc}>
       {children}
     </button>
   );
