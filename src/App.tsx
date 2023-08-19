@@ -6,9 +6,7 @@ import ListGroup from "./components/ListGroup/ListGroup";
 import ExpenseList from "./expense-traker/components/ExpenseList/ExpenseList";
 import ExpenseFilter from "./expense-traker/components/ExpenseFilter/ExpenseFilter";
 import ExpenseForm from "./expense-traker/components/ExpenseForm/ExpenseForm";
-
-export const categories = ["Laptop", "Car", "House", "Bike", "Phone"];
-
+import categories from "./expense-traker/categories";
 function App() {
   // let americanStates = [
   //   "Alabama",
@@ -34,10 +32,6 @@ function App() {
     { id: 3, description: "Buy a bike", amount: 1000, category: "Bike" },
     { id: 4, description: "Buy a laptop", amount: 100, category: "Laptop" },
     { id: 5, description: "Buy a phone", amount: 100, category: "Phone" },
-    { id: 6, description: "Buy a laptop", amount: 100, category: "Laptop" },
-    { id: 7, description: "Buy a laptop", amount: 100, category: "Laptop" },
-    { id: 8, description: "Buy a laptop", amount: 100, category: "Laptop" },
-    { id: 9, description: "Buy a laptop", amount: 100, category: "Laptop" },
     { id: 10, description: "Buy a laptop", amount: 100, category: "Laptop" },
   ]);
 
@@ -60,7 +54,11 @@ function App() {
       )}
       <Button clickFunc={() => setVisibility(true)}>Click here</Button>
       <Like clickOnLike={() => console.log("Clicked")} /> */}
-      <ExpenseForm />
+      <ExpenseForm
+        onFormSubmit={(expense) =>
+          setExpenses([...expenses, { ...expense, id: expenses.length + 1 }])
+        }
+      />
       <div className="mb-3">
         <ExpenseFilter onSelectCategory={(category) => setSelected(category)} />
       </div>
