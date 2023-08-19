@@ -4,6 +4,7 @@ import Button from "./components/Button/Button";
 import Like from "./components/Like/Like";
 import ListGroup from "./components/ListGroup/ListGroup";
 import ExpenseList from "./expense-traker/components/ExpenseList/ExpenseList";
+import ExpenseFilter from "./expense-traker/components/ExpenseFilter/ExpenseFilter";
 
 function App() {
   // let americanStates = [
@@ -23,20 +24,23 @@ function App() {
   //   console.log(item);
   // };
   // const [visibility, setVisibility] = useState(false);
-
-  let expenses = [
+  const [selected, setSelected] = useState("");
+  const [expenses, setExpenses] = useState([
     { id: 1, description: "Buy a car", amount: 10000, category: "Car" },
     { id: 2, description: "Buy a house", amount: 100000, category: "House" },
     { id: 3, description: "Buy a bike", amount: 1000, category: "Bike" },
     { id: 4, description: "Buy a laptop", amount: 100, category: "Laptop" },
     { id: 5, description: "Buy a phone", amount: 100, category: "Phone" },
-    // create five more objects of laptop category
     { id: 6, description: "Buy a laptop", amount: 100, category: "Laptop" },
     { id: 7, description: "Buy a laptop", amount: 100, category: "Laptop" },
     { id: 8, description: "Buy a laptop", amount: 100, category: "Laptop" },
     { id: 9, description: "Buy a laptop", amount: 100, category: "Laptop" },
     { id: 10, description: "Buy a laptop", amount: 100, category: "Laptop" },
-  ];
+  ]);
+
+  const visibleExpenses = selected
+    ? expenses.filter((expense) => expense.category === selected)
+    : expenses;
 
   return (
     <div>
@@ -54,9 +58,15 @@ function App() {
       <Button clickFunc={() => setVisibility(true)}>Click here</Button>
       <Like clickOnLike={() => console.log("Clicked")} /> */}
 
+      <div className="mb-3">
+        <ExpenseFilter onSelectCategory={(category) => setSelected(category)} />
+      </div>
       <ExpenseList
-        expenses={expenses}
-        onDelete={(id) => console.log("Delete", id)}
+        // expenses={expenses}
+        expenses={visibleExpenses}
+        onDelete={(id) =>
+          setExpenses(expenses.filter((expense) => expense.id !== id))
+        }
       />
     </div>
   );
