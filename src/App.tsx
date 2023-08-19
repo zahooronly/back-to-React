@@ -5,6 +5,9 @@ import Like from "./components/Like/Like";
 import ListGroup from "./components/ListGroup/ListGroup";
 import ExpenseList from "./expense-traker/components/ExpenseList/ExpenseList";
 import ExpenseFilter from "./expense-traker/components/ExpenseFilter/ExpenseFilter";
+import ExpenseForm from "./expense-traker/components/ExpenseForm/ExpenseForm";
+
+export const categories = ["Laptop", "Car", "House", "Bike", "Phone"];
 
 function App() {
   // let americanStates = [
@@ -57,7 +60,7 @@ function App() {
       )}
       <Button clickFunc={() => setVisibility(true)}>Click here</Button>
       <Like clickOnLike={() => console.log("Clicked")} /> */}
-
+      <ExpenseForm />
       <div className="mb-3">
         <ExpenseFilter onSelectCategory={(category) => setSelected(category)} />
       </div>
